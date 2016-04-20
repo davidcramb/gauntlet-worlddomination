@@ -20,6 +20,7 @@ Gauntlet.Combatants.Player = function(name) {
   this.skinColors = [this.skinColor];
   this.strength = 90;
   this.intelligence = 90;
+  this.dexterity = 90;
 
   this.toString = function() {
     var output = [this.playerName,
@@ -86,6 +87,7 @@ Gauntlet.Combatants.Monster = function() {
   this.health = this.health - 30;
   this.intelligence = this.intelligence -20;
   this.strength = this.strength + 30;
+  this.dexterity = this.dexterity - 10;
 };
 
 Gauntlet.Combatants.Monster.prototype = new Gauntlet.Combatants.Player();
