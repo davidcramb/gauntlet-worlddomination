@@ -1,124 +1,126 @@
-var Weapon = function() {
+var Gauntlet = Gauntlet || {};
+Gauntlet.Armory = {};
+
+Gauntlet.Armory.Weapon = function() {
   this.name = "bare hands";
   this.damage = 1;
   this.hands = 2;
-
   this.toString = function() {
     return this.name;
   }
 };
+// Gauntlet.Armory.Weapon.prototype = new Gauntlet.Armory.Weapon();
 
-var Dagger = function() {
+Gauntlet.Armory.Dagger = function() {
   this.name = "dagger";
   this.damage = 10;
   this.hands = 1;
 };
-Dagger.prototype = new Weapon();
+Gauntlet.Armory.Dagger.prototype = new Gauntlet.Armory.Weapon();
 
-var BroadSword = function() {
+Gauntlet.Armory.BroadSword = function() {
   this.name = "broad sword";
   this.damage = 20;
   this.hands = 2;
 };
-BroadSword.prototype = new Weapon();
+Gauntlet.Armory.BroadSword.prototype = new Gauntlet.Armory.Weapon();
 
-var WarAxe = function() {
+Gauntlet.Armory.WarAxe = function() {
   this.name = "war axe";
   this.damage = 10;
   this.hands = 2;
 };
-WarAxe.prototype = new Weapon();
+Gauntlet.Armory.WarAxe.prototype = new Gauntlet.Armory.Weapon();
 
-var Wand = function() {
+Gauntlet.Armory.Wand = function() {
   this.name = "wand";
   this.damage = 20;
   this.hands = 1;
 };
-Wand.prototype = new Weapon();
+Gauntlet.Armory.Wand.prototype = new Gauntlet.Armory.Weapon();
 
-var Claymore = function() {
+Gauntlet.Armory.Claymore = function() {
   this.name = "claymore";
   this.damage = 10;
   this.hands = 2;
 };
-Claymore.prototype = new Weapon();
+Gauntlet.Armory.Claymore.prototype = new Gauntlet.Armory.Weapon();
 
-var Mace = function() {
+Gauntlet.Armory.Mace = function() {
   this.name = "mace";
   this.damage = 10;
   this.hands = 2;
 };
-Mace.prototype = new Weapon();
+Gauntlet.Armory.Mace.prototype = new Gauntlet.Armory.Weapon();
 
-var Shuriken = function() {
+Gauntlet.Armory.Shuriken = function() {
   this.name = "shuriken";
   this.damage = 5;
   this.hands = 1;
 };
-Shuriken.prototype = new Weapon();
+Gauntlet.Armory.Shuriken.prototype = new Gauntlet.Armory.Weapon();
 
-var Scythe = function() {
+Gauntlet.Armory.Scythe = function() {
   this.name = "scythe";
   this.damage = 15;
   this.hands = 1;
 };
-Scythe.prototype = new Weapon();
+Gauntlet.Armory.Scythe.prototype = new Gauntlet.Armory.Weapon();
 
-var Sai = function() {
+Gauntlet.Armory.Sai = function() {
   this.name = "sai";
   this.damage = 5;
   this.hands = 1;
 };
-Sai.prototype = new Weapon();
+Gauntlet.Armory.Sai.prototype = new Gauntlet.Armory.Weapon();
 
-var Katana = function() {
+Gauntlet.Armory.Katana = function() {
   this.name = "katana";
   this.damage = 5;
   this.hands = 2;
 };
-Katana.prototype = new Weapon();
+Gauntlet.Armory.Katana.prototype = new Gauntlet.Armory.Weapon();
 
-var Tonfa = function() {
+Gauntlet.Armory.Tonfa = function() {
   this.name = "tonfa";
   this.damage = 5;
   this.hands = 1;
 };
-Tonfa.prototype = new Weapon();
-
-var BrassKnuckles = function() {
+Gauntlet.Armory.Tonfa.prototype = new Gauntlet.Armory.Weapon();
+Gauntlet.Armory.BrassKnuckles = function() {
   this.name = "brass knuckles";
   this.damage = 10;
   this.hands = 2;
 };
-BrassKnuckles.prototype = new Weapon();
+Gauntlet.Armory.BrassKnuckles.prototype = new Gauntlet.Armory.Weapon();
 
-var Potions = function() {
+Gauntlet.Armory.Potions = function() {
   this.name = "potions";
   this.damage = 15;
   this.hands = 2;
 };
-Potions.prototype = new Weapon();
+Gauntlet.Armory.Potions.prototype = new Gauntlet.Armory.Weapon();
 
-var Taser = function() {
+Gauntlet.Armory.Taser = function() {
   this.name = "taser";
   this.damage = 20;
   this.hands = 1;
 };
-Taser.prototype = new Weapon();
+Gauntlet.Armory.Taser.prototype = new Gauntlet.Armory.Weapon();
 
-var Staff = function() {
+Gauntlet.Armory.Staff = function() {
   this.name = "staff";
   this.damage = 10;
   this.hands = 1;
 };
-Staff.prototype = new Weapon();
+Gauntlet.Armory.Staff.prototype = new Gauntlet.Armory.Weapon();
 
-var ShrunkenHead = function() {
+Gauntlet.Armory.ShrunkenHead = function() {
   this.name = "shrunken head";
   this.damage = 10;
   this.hands = 1;
 };
-ShrunkenHead.prototype = new Weapon();
+Gauntlet.Armory.ShrunkenHead.prototype = new Gauntlet.Armory.Weapon();
 
 
 
