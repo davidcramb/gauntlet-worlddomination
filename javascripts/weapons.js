@@ -51,11 +51,11 @@ var Mace = function() {
 Mace.prototype = new Weapon();
 
 var Shuriken = function() {
-  this.name = "shirken";
+  this.name = "shuriken";
   this.damage = 5;
   this.hands = 1;
 };
-Shirken.prototype = new Weapon();
+Shuriken.prototype = new Weapon();
 
 var Scythe = function() {
   this.name = "scythe";
