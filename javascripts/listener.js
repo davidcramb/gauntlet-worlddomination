@@ -14,6 +14,7 @@ var Gauntlet = (function(originalGauntlet){
 				};
 	};
 
+
 	originalGauntlet.markClicked = function(){
 		var clickedClass = event.target.closest('div');
 		var classId = clickedClass.getAttribute("id");
@@ -29,7 +30,16 @@ var Gauntlet = (function(originalGauntlet){
 		Gauntlet.makeCharacter(classId);
 	};
 
+	originalGauntlet.setPlayerName = function () {
+		let playerName = $('#player-name').val();
+		Gauntlet.Combatants.Player.playerName = playerName
+	}
+	$('.card__link[next=card--class]').click(setPlayerName)
+
 
  return originalGauntlet;
 
 }) (Gauntlet || {});
+
+
+
