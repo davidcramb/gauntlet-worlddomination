@@ -1,29 +1,35 @@
 "use strict";
 
+var classId;
 var classLink = document.getElementsByClassName("class__link");
 var clickedThings = document.getElementsByClassName("selected");
 
-function addClickEvent(currentClass) {
+var Gauntlet = (function(originalGauntlet){
 
-	// console.log("click");
-			for (let i=0; i<classLink.length; i++) {
-				console.log("forLoop");
-					 var currentClass =  classLink[i];
-					currentClass.addEventListener("click", markClicked);
-			};
-};
+	originalGauntlet.addClickEvent = function(currentClass) {
 
-function markClicked(){
-	var clickedClass = event.target.closest('div');
-	var clickedId = clickedClass.getAttribute("id");
-	if (clickedThings.length !== 0) {
-			clickedThings[0].classList.remove("selected");
-			clickedClass.classList.add("selected");
-		}
-	else {
-			clickedClass.classList.add("selected");
-		}
-};
+				for (let i=0; i<classLink.length; i++) {
+						 var currentClass =  classLink[i];
+						currentClass.addEventListener("click", Gauntlet.markClicked);
+				};
+	};
+
+	originalGauntlet.markClicked = function(){
+		var clickedClass = event.target.closest('div');
+		var classId = clickedClass.getAttribute("id");
+
+		if (clickedThings.length !== 0) {
+				clickedThings[0].classList.remove("selected");
+				clickedClass.classList.add("selected");
+			}
+		else {
+				clickedClass.classList.add("selected");
+			}
+		console.log("I selected a class.");
+		Gauntlet.makeCharacter(classId);
+	};
 
 
+ return originalGauntlet;
 
+}) (Gauntlet || {});
