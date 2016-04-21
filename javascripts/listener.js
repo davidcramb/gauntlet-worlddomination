@@ -32,9 +32,10 @@ var Gauntlet = (function(originalGauntlet){
 
 	originalGauntlet.setPlayerName = function () {
 		let playerName = $('#player-name').val();
-		Gauntlet.Combatants.Player.playerName = playerName
+		Gauntlet.Combatants.Player.playerName = playerName;
 	}
-	$('.card__link[next=card--class]').click(setPlayerName)
+
+	$('.card__link[next=card--class]').click(Gauntlet.setPlayerName);
 
 
  return originalGauntlet;
