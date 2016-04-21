@@ -2,11 +2,6 @@
 
 var Gauntlet = (function(originalGauntlet){
 
-  originalGauntlet.Combatants = {};
-
-  // Gauntlet.Combatants = {};
-
-
 
   originalGauntlet.Combatants.Orc = function() {
     this.health = this.health + 20;
