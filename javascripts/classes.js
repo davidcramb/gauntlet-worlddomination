@@ -2,7 +2,7 @@
 
 var Gauntlet = (function(originalGauntlet){
 
-  originalGauntlet.Combatants = {};
+  //originalGauntlet.Combatants = {};
 
   // Gauntlet.Combatants = {};
   originalGauntlet.GuildHall = {};
