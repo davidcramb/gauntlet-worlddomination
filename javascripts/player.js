@@ -26,14 +26,14 @@ var Gauntlet = (function(originalGauntlet){
       var output = [this.playerName,
         ": a ",
         this.skinColor,
-        " skinned ",
+        "-skinned ",
         this.species,
         " ",
         this.class,
         " with ",
         this.health,
         " health. ",
-        (this.class.magical) ? "Able to cast " : " Wielding a ",
+        (this.class.magical) ? "Able to cast " : " Wielding his ",
         this.weapon.toString(),
         "!"
       ].join("");
@@ -41,8 +41,8 @@ var Gauntlet = (function(originalGauntlet){
     };
   };
 
-  originalGauntlet.Combatants.Player.prototype.setWeapon = function(newWeapon) {
-    this.weapon = newWeapon;
+  originalGauntlet.Combatants.Player.prototype.setWeapon = function(chosenWeapon) {
+    this.weapon = chosenWeapon;
   }
 
   // ---------- Generates a random class when user selects "surprise me" ---------- //
@@ -66,7 +66,7 @@ var Gauntlet = (function(originalGauntlet){
   // ---------- Sets new class based on player input ----------- //
   originalGauntlet.Combatants.Player.prototype.setClass = function(newClass) {
     this.class = newClass;
-    this.health += this.class.healthBonus;
+    //this.health += this.class.healthBonus;
   };
 
   /*
