@@ -25,8 +25,8 @@ var Gauntlet = (function(originalGauntlet) {
 		else {
 				clickedWeapon.classList.add("chosen");
 			}
-		console.log("I chose a ", weaponId);
-		// Gauntlet.Armory.Weapon(name);
+
+		Gauntlet.setWeapon(weaponId);
 	};
 
 
