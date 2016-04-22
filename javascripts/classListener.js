@@ -26,7 +26,10 @@ var Gauntlet = (function(originalGauntlet){
 		else {
 				clickedClass.classList.add("selected");
 			}
-		console.log("I selected a class.");
+
+			Gauntlet.createHero(classId);
+
+
 
 	};
 
