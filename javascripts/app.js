@@ -1,15 +1,16 @@
 /*
   Test code to generate a human player and an orc player
  */
-var warrior = new Gauntlet.Combatants.Human();
-warrior.setWeapon(new Gauntlet.Armory.WarAxe());
-warrior.generateClass();  // This will be used for "Surprise me" option
-console.log(warrior.toString());
+var testHero = new Gauntlet.Combatants.Human();
+testHero.setWeapon(new Gauntlet.Armory.WarAxe());
+testHero.setClass(new Gauntlet.GuildHall.Monk());
+//character.generateClass();  // This will be used for "Surprise me" option
+console.log(testHero.toString());
 
-var orc = new Gauntlet.Combatants.Orc();
-orc.generateClass();
-orc.setWeapon(new Gauntlet.Armory.BroadSword());
-console.log(orc.toString());
+var testEnemy = new Gauntlet.Combatants.Orc();
+testEnemy.generateClass();
+testEnemy.setWeapon(new Gauntlet.Armory.BroadSword());
+console.log(testEnemy.toString());
 
 /*
   Test code to generate a spell
@@ -20,13 +21,16 @@ console.log("spell: ", spell.toString());
 
 $(document).ready(function() {
 
+
   // --- Show the initial view that accepts player name --- //
 
   $("#player-setup").show();
 
   // --- Adds listeners to each of the class buttons --- //
 
+
   Gauntlet.addClickEvent();
+
 
    // ----- Move on to next view with button with card__link class is clicked ----- //
   $(".card__link").click(function(e) {
@@ -38,8 +42,11 @@ $(document).ready(function() {
         moveAlong = ($("#player-name").val() !== "");
         break;
       case "card--weapon":
-        moveAlong = ($("#player-name").val() !== "");
+        moveAlong = $( "div.characterClasses" ).find("selected");
+        console.log("Box checked");
         break;
+      case "card--battleground":
+        moveAlong = ($("player-name").val() !== "");
     }
 
     if (moveAlong) {
@@ -54,5 +61,8 @@ $(document).ready(function() {
     $(".card").hide();
     $("." + previousCard).show();
   });
+
+
+
 
 });
