@@ -1,6 +1,7 @@
 /*
   Test code to generate a human player and an orc player
  */
+
 var testHero = new Gauntlet.Combatants.Human();
 testHero.setWeapon(new Gauntlet.Armory.WarAxe());
 testHero.setClass(new Gauntlet.GuildHall.Monk());
@@ -11,6 +12,7 @@ var testEnemy = new Gauntlet.Combatants.Orc();
 testEnemy.generateClass();
 testEnemy.setWeapon(new Gauntlet.Armory.BroadSword());
 console.log(testEnemy.toString());
+
 
 /*
   Test code to generate a spell
@@ -31,6 +33,7 @@ $(document).ready(function() {
 
   Gauntlet.addClickEvent();
 
+  Gauntlet.addWeaponClick();
 
    // ----- Move on to next view with button with card__link class is clicked ----- //
   $(".card__link").click(function(e) {
