@@ -71,6 +71,9 @@ $(document).ready(function() {
 
     console.log("hero as object", hero);
     console.log("hero: ", hero.toString());
+    console.log("Weapon damange:",hero.weapon.damage);
+    console.log("Weapon # of hands:", hero.weapon.hands);
+    console.log("Hero's class health bonus:", hero.class.healthBonus);
 
   });
 
