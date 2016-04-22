@@ -45,8 +45,7 @@ $(document).ready(function() {
         moveAlong = ($("#player-name").val() !== "");
         break;
       case "card--weapon":
-        moveAlong = $( "div.characterClasses" ).find("selected");
-        console.log("Box checked");
+        moveAlong = ($("#player-name").val() !== "");
         break;
       case "card--battleground":
         moveAlong = ($("player-name").val() !== "");
