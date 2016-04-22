@@ -1,16 +1,18 @@
 /*
   Test code to generate a human player and an orc player
  */
-
 var testHero = new Gauntlet.Combatants.Human();
 testHero.setWeapon(new Gauntlet.Armory.WarAxe());
 testHero.setClass(new Gauntlet.GuildHall.Monk());
 testHero.generateClass();  // This will be used for "Surprise me" option
-
+//console.log(testHero);
+//console.log(testHero.skinColor);
+//console.log(testHero.class.name);
+//console.log(testHero.class.healthBonus);
 
 var testEnemy = new Gauntlet.Combatants.Orc();
 testEnemy.generateClass();
-testEnemy.setWeapon(new Gauntlet.Armory.BroadSword());
+//testEnemy.setWeapon(new Gauntlet.Armory.BroadSword());
 
 /*
   Test code to generate a spell
@@ -26,8 +28,8 @@ $(document).ready(function() {
 
   $("#player-setup").show();
 
+  
   // --- Adds listeners to each of the class buttons --- //
-
 
   Gauntlet.addClickEvent();
 
@@ -62,7 +64,15 @@ $(document).ready(function() {
     $("." + previousCard).show();
   });
 
+  // ----- When the defend button clicked, create the hero object ----- //
+  $("#build__hero").click(function(e) {
 
+    Gauntlet.createHero(classId, weaponId);
+
+    console.log("hero as object", hero);
+    console.log("hero: ", hero.toString());
+
+  });
 
 
 });
