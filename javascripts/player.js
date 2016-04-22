@@ -45,7 +45,8 @@ var Gauntlet = (function(originalGauntlet){
     this.weapon = newWeapon;
   }
 
-  originalGauntlet.Combatants.Player.prototype.generateClass = function() {
+  // ---------- Generates a random class when user selects "surprise me" ---------- //
+  originalGauntlet.Combatants.Player.prototype.generateClass = function() {  
     // Get a random index from the allowed classes array
     var random = Math.round(Math.random() * (this.allowedClasses.length - 1));
 
@@ -60,13 +61,20 @@ var Gauntlet = (function(originalGauntlet){
     return this.class;
   };
 
+  // ---------- Sets new class based on player input ----------- //
+  originalGauntlet.Combatants.Player.prototype.setClass = function(newClass) {
+    this.class = newClass;
+    this.health += this.class.healthBonus;
+  };
+
+
   /*
     Define the base properties for a human in a 
     constructor function.
    */
-  originalGauntlet.Combatants.Human = function() {
+  originalGauntlet.Combatants.Human = function(name) {
     var randomSkin;
-
+    this.playerName = name || "unknown adventurer";
     this.species = "Human";
     this.intelligence = this.intelligence + 20;
 

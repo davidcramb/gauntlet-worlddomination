@@ -19,7 +19,6 @@ var Gauntlet = (function(originalGauntlet){
       return this.class;
     }
   };
-
   originalGauntlet.Combatants.Orc.prototype = new originalGauntlet.Combatants.Monster();
 
   originalGauntlet.Combatants.Gremlin = function() {

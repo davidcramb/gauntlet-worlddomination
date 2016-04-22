@@ -6,6 +6,8 @@ var clickedThings = document.getElementsByClassName("selected");
 
 var Gauntlet = (function(originalGauntlet){
 
+  // ---------- Set event listeners on all 'character class' buttons ---------- //
+
 	originalGauntlet.addClickEvent = function(currentClass) {
 
 				for (let i=0; i<classLink.length; i++) {
@@ -14,6 +16,8 @@ var Gauntlet = (function(originalGauntlet){
 				};
 	};
 
+  // ---------- Indicate when a player has clicked on a 'character class' ---------- //
+  // ---------- Removes any previously selected 'character classes' first ---------- //
 
 	originalGauntlet.markClicked = function(){
 		var clickedClass = event.target.closest('div');
@@ -26,16 +30,15 @@ var Gauntlet = (function(originalGauntlet){
 		else {
 				clickedClass.classList.add("selected");
 			}
-		console.log("I selected a class.");
-		Gauntlet.makeCharacter(classId);
+
 	};
 
-	originalGauntlet.setPlayerName = function () {
-		let playerName = $('#player-name').val();
-		Gauntlet.Combatants.Player.playerName = playerName;
-	}
+	// originalGauntlet.setPlayerName = function () {
+	// 	let playerName = $('#player-name').val();
+	// 	Gauntlet.Combatants.Player.playerName = playerName;
+	// }
 
-	$('.card__link[next=card--class]').click(Gauntlet.setPlayerName);
+	// $('.card__link[next=card--class]').click(Gauntlet.setPlayerName);
 
 
  return originalGauntlet;
