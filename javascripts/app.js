@@ -1,15 +1,16 @@
 /*
   Test code to generate a human player and an orc player
  */
-var warrior = new Gauntlet.Combatants.Human();
-warrior.setWeapon(new Gauntlet.Armory.WarAxe());
-warrior.generateClass();  // This will be used for "Surprise me" option
-console.log(warrior.toString());
+var hero = new Gauntlet.Combatants.Human();
+hero.setWeapon(new Gauntlet.Armory.WarAxe());
+hero.setClass(new Gauntlet.GuildHall.Monk());
+// hero.generateClass();  // This will be used for "Surprise me" option
+console.log(hero.toString());
 
-var orc = new Gauntlet.Combatants.Orc();
-orc.generateClass();
-orc.setWeapon(new Gauntlet.Armory.BroadSword());
-console.log(orc.toString());
+var enemy = new Gauntlet.Combatants.Orc();
+enemy.generateClass();
+enemy.setWeapon(new Gauntlet.Armory.BroadSword());
+console.log(enemy.toString());
 
 /*
   Test code to generate a spell
@@ -27,7 +28,7 @@ $(document).ready(function() {
   // --- Adds listeners to each of the class buttons --- //
 
   Gauntlet.addClickEvent();
-
+  Gauntlet.addWeaponClick();
    // ----- Move on to next view with button with card__link class is clicked ----- //
   $(".card__link").click(function(e) {
     var nextCard = $(this).attr("next");
