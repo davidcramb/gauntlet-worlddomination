@@ -5,20 +5,18 @@
 var testHero = new Gauntlet.Combatants.Human();
 testHero.setWeapon(new Gauntlet.Armory.WarAxe());
 testHero.setClass(new Gauntlet.GuildHall.Monk());
-//character.generateClass();  // This will be used for "Surprise me" option
-console.log(testHero.toString());
+character.generateClass();  // This will be used for "Surprise me" option
+
 
 var testEnemy = new Gauntlet.Combatants.Orc();
 testEnemy.generateClass();
 testEnemy.setWeapon(new Gauntlet.Armory.BroadSword());
-console.log(testEnemy.toString());
-
 
 /*
   Test code to generate a spell
  */
 var spell = new Gauntlet.SpellBook.Sphere();
-console.log("spell: ", spell.toString());
+//console.log("spell: ", spell.toString());
 
 
 $(document).ready(function() {
