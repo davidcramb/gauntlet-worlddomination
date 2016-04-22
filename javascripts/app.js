@@ -5,7 +5,7 @@
 var testHero = new Gauntlet.Combatants.Human();
 testHero.setWeapon(new Gauntlet.Armory.WarAxe());
 testHero.setClass(new Gauntlet.GuildHall.Monk());
-character.generateClass();  // This will be used for "Surprise me" option
+testHero.generateClass();  // This will be used for "Surprise me" option
 
 
 var testEnemy = new Gauntlet.Combatants.Orc();
