@@ -5,6 +5,7 @@ var enemy;
 
 var Gauntlet = (function(originalGauntlet){
 
+
   originalGauntlet.createHero = function(classId, weaponId) {
 
     // ----- creates a new hero, feeding in the user-inputted name ----- //
@@ -114,7 +115,6 @@ var Gauntlet = (function(originalGauntlet){
         break;
       case "surprise":
         //generateWeapon();
-        console.log("Make a surprise");
         break;
     }
 
@@ -122,12 +122,71 @@ var Gauntlet = (function(originalGauntlet){
 
   };
 
-
+  // ----- Creates a monster enemy with random species, class, and weapon --------- //
   originalGauntlet.createEnemy = function() {
 
 
     enemy = new Gauntlet.Combatants.Monster();
 
+    enemy.generateClass();
+    enemy.generateSpecies();
+    enemy.generateWeapon();
+
+  };
+
+   // ------ Generates a random class in two scenarios:           ---------- //
+  // ------  1. if user chooses 'surprise me' instead of a class ---------- //
+  // ------  2. when creating a new random enemy monster         ---------- //
+
+  originalGauntlet.Combatants.Player.prototype.generateClass = function() {
+
+    // Get a random index from the allowed classes array
+    var random = Math.round(Math.random() * (this.allowedClasses.length - 1));
+
+    // Get the string at the index
+    var randomClass = this.allowedClasses[random];
+
+    // Composes the corresponding player class into the player object
+    this.class = new originalGauntlet.GuildHall[randomClass]();
+
+    // Add the health bonus
+    this.health += this.class.healthBonus;
+    return this.class;
+  };
+
+
+  // ------ Chooses a random 'monster' species for the generated enemy ----- //
+
+  originalGauntlet.Combatants.Monster.prototype.generateSpecies = function() {
+
+    // Get a random index from the allowed species array
+    var random = Math.round(Math.random() * (this.allowedSpecies.length - 1));
+
+    // Get the string at the index
+    var randomSpecies = this.allowedSpecies[random];
+
+    // Composes the corresponding enemy species into the enemy object
+    this.species = new originalGauntlet.Combatants[randomSpecies]();
+
+
+    return this.species;
+  };
+
+  // ------ Chooses a random weapon for the generated enemy ----- //
+
+  originalGauntlet.Combatants.Monster.prototype.generateWeapon = function() {
+
+    // Get a random index from the allowed species array
+    var random = Math.round(Math.random() * (this.allowedWeapons.length - 1));
+
+    // Get the string at the index
+    var randomWeapon = this.allowedWeapons[random];
+
+    // Composes the corresponding enemy species into the enemy object
+    this.weapon = new originalGauntlet.Armory[randomWeapon]();
+
+    console.log(this.weapon);
+    return this.weapon;
   };
 
 
