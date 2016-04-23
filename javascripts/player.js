@@ -35,8 +35,8 @@ var Gauntlet = (function(originalGauntlet){
         " health. ",
         //(this.class.magical) ? "Able to cast " : " Wielding his ",
         " Weapon of choice: ",
-        this.weapon.toString(),
-        //this.weapon,
+        // this.weapon.toString(),
+        this.weapon,
         "!"
       ].join("");
       return output;
