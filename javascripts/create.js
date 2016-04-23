@@ -16,7 +16,7 @@ var Gauntlet = (function(originalGauntlet){
 
     // ----- calls function (below) to set weapon by creating a new weapon object ----- //
     hero.setWeapon(Gauntlet.chooseWeapon(weaponId));
-
+    
   };
 
   originalGauntlet.chooseCharacterClass = function(classId) {
@@ -185,7 +185,6 @@ var Gauntlet = (function(originalGauntlet){
     // Composes the corresponding enemy species into the enemy object
     this.weapon = new originalGauntlet.Armory[randomWeapon]();
 
-    console.log(this.weapon);
     return this.weapon;
   };
 

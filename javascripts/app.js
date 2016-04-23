@@ -69,23 +69,16 @@ $(document).ready(function() {
 
     Gauntlet.createHero(classId, weaponId);
 
-    console.log("hero as object", hero);
-    console.log("hero: ", hero.toString());
-    console.log("Weapon damange:",hero.weapon.damage);
-    console.log("Weapon # of hands:", hero.weapon.hands);
-    console.log("Hero's class health bonus:", hero.class.healthBonus);
-
+    Gauntlet.outputHeroStats(hero);
+    
     Gauntlet.createEnemy();
-
-    console.log("enemy as object", enemy);
-    console.log("Weapon damage:",enemy.weapon.damage);
-    console.log("Weapon # of hands:", enemy.weapon.hands);
-    console.log("Enemy's class health bonus:", enemy.class.healthBonus);
-
-    // ----- This log is not working -- don't understand why yet ----- //
-    // console.log("enemy: ", enemy.toString());
 
   });
 
+  $("#attackBtn").click(function(e) {
+
+    Gauntlet.attackBtnClicked;
+    console.log("clickWorked!!!!");
+  });  
 
 });
