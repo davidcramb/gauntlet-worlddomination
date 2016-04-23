@@ -2,7 +2,7 @@
 
 var Gauntlet = (function(originalGauntlet){
 
-  
+
   originalGauntlet.GuildHall = {};
 
   /*

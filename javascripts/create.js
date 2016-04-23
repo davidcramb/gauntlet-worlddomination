@@ -1,62 +1,135 @@
 "use strict";
 
-var classId;
+var hero;
+var enemy;
 
 var Gauntlet = (function(originalGauntlet){
 
-  originalGauntlet.setCharacterClass = function(classId) {
-    
+  originalGauntlet.createHero = function(classId, weaponId) {
+
+    // ----- creates a new hero, feeding in the user-inputted name ----- //
+    hero = new Gauntlet.Combatants.Human($('#player-name').val());
+
+    // ----- calls function (below) to set class by creating a new class object ----- //
+    hero.setClass(Gauntlet.chooseCharacterClass(classId));
+
+    // ----- calls function (below) to set weapon by creating a new weapon object ----- //
+    hero.setWeapon(Gauntlet.chooseWeapon(weaponId));
+
+  };
+
+  originalGauntlet.chooseCharacterClass = function(classId) {
+    // ---------- Takes the user's choice of class and sets up   ---------- //
+    // ---------- structure for creating a new class that will   ---------- //
+    // ---------- be used in the function above to set the class ---------- //
     switch (classId) {
       case "warrior":
-        console.log("Let's make a new warrior!");
-        var x = new originalGauntlet.GuildHall.Warrior();
+        var x = new Gauntlet.GuildHall.Warrior();
         break;
       case "valkyrie":
-        console.log("Let's make a new valkyrie!");
-        var x = new originalGauntlet.GuildHall.Valkyrie();
+        var x = new Gauntlet.GuildHall.Valkyrie();
         break;
       case "berserker":
-        console.log("Let's make a new berserker!");
-        var x = new originalGauntlet.GuildHall.Berserker();
+        var x = new Gauntlet.GuildHall.Berserker();
         break;
       case "monk":
-        console.log("Let's make a new monk!");
-        var x = new originalGauntlet.GuildHall.Monk();
+        var x = new Gauntlet.GuildHall.Monk();
         break;
       case "wizard":
-        console.log("Let's make a new wizard!");
-        var x = new originalGauntlet.GuildHall.Wizard();
+        var x = new Gauntlet.GuildHall.Wizard();
         break;
       case "sorcerer":
-        console.log("Let's make a new sorcerer!");
-        var x = new originalGauntlet.GuildHall.Sorcerer();
+        var x = new Gauntlet.GuildHall.Sorcerer();
         break;
       case "conjurer":
-        console.log("Let's make a new conjurer!");
-        var x = new originalGauntlet.GuildHall.Conjurer();
+        var x = new Gauntlet.GuildHall.Conjurer();
         break;
       case "thief":
-        console.log("Let's make a new thief!");
-        var x = new originalGauntlet.GuildHall.Thief();
+        var x = new Gauntlet.GuildHall.Thief();
         break;
       case "ninja":
-        console.log("Let's make a new ninjna!");
-        var x = new originalGauntlet.GuildHall.Ninja();
+        var x = new Gauntlet.GuildHall.Ninja();
         break;
-      
       case "assassin":
-        console.log("Let's make a new assassin!");
-        var x = new originalGauntlet.GuildHall.Assassin();
+        var x = new Gauntlet.GuildHall.Assassin();
         break;
-
       case "surprise":
-        console.log("Let's make a new surprise!");
         generateClass();
         break;
     }
-    console.log(x);
-    //return x;
-  }
+
+    return x;
+  };
+
+
+// ----- Function to create new weapon object and add it to character ----- //
+
+  originalGauntlet.chooseWeapon = function(weaponId) {
+    // ---------- Takes the user's choice of weapon and sets up   ---------- //
+    // ---------- structure for creating a new weapon that will   ---------- //
+    // ---------- be used in the function above to set the weapon ---------- //
+
+    switch (weaponId) {
+      case "Weapon":
+        var y = new Gauntlet.Armory.Weapon();
+        break;
+      case "BroadSword":
+        var y = new Gauntlet.Armory.BroadSword();
+        break;
+      case "WarAxe":
+        var y = new Gauntlet.Armory.WarAxe();
+        break;
+      case "Claymore":
+        var y = new Gauntlet.Armory.Claymore();
+        break;
+      case "Mace":
+        var y = new Gauntlet.Armory.Mace();
+        break;
+      case "Shuriken":
+        var y = new Gauntlet.Armory.Shuriken();
+        break;
+      case "Sai":
+        var y = new Gauntlet.Armory.Sai();
+        break;
+      case "Katana":
+        var y = new Gauntlet.Armory.Katana();
+        break;
+      case "Tonfa":
+        var y = new Gauntlet.Armory.Tonfa();
+        break;
+      case "BrassKnuckles":
+        var y = new Gauntlet.Armory.BrassKnuckles();
+        break;
+      case "Potions":
+        var y = new Gauntlet.Armory.Potions();
+        break;
+      case "Taser":
+        var y = new Gauntlet.Armory.Taser();
+        break;
+      case "Staff":
+        var y = new Gauntlet.Armory.Staff();
+        break;
+      case "ShrunkenHead":
+        var y = new Gauntlet.Armory.ShrunkenHead();
+        break;
+      case "surprise":
+        //generateWeapon();
+        console.log("Make a surprise");
+        break;
+    }
+
+    return y;
+
+  };
+
+
+  originalGauntlet.createEnemy = function() {
+
+
+    enemy = new Gauntlet.Combatants.Monster();
+
+  };
+
 
  return originalGauntlet;
 
