@@ -33,37 +33,25 @@ var Gauntlet = (function(originalGauntlet){
         " with ",
         this.health,
         " health. ",
-        (this.class.magical) ? "Able to cast " : " Wielding his ",
+        //(this.class.magical) ? "Able to cast " : " Wielding his ",
+        " Weapon of choice: ",
         this.weapon.toString(),
+        //this.weapon,
         "!"
       ].join("");
       return output;
     };
   };
 
+
+  // ------ Adds a weapon to the player object based on user's choice ----------- //
+
   originalGauntlet.Combatants.Player.prototype.setWeapon = function(chosenWeapon) {
     this.weapon = chosenWeapon;
   }
 
-  // ---------- Generates a random class when user selects "surprise me" ---------- //
-  originalGauntlet.Combatants.Player.prototype.generateClass = function() {  
 
-    // Get a random index from the allowed classes array
-    var random = Math.round(Math.random() * (this.allowedClasses.length - 1));
-
-    // Get the string at the index
-    var randomClass = this.allowedClasses[random];
-
-    // Composes the corresponding player class into the player object
-    this.class = new originalGauntlet.GuildHall[randomClass]();
-
-    // Add the health bonus
-    this.health += this.class.healthBonus;
-    return this.class;
-  };
-
-
-  // ---------- Sets new class based on player input ----------- //
+  // ---------- Sets new class based on user's input ----------- //
   originalGauntlet.Combatants.Player.prototype.setClass = function(newClass) {
     this.class = newClass;
     //this.health += this.class.healthBonus;
@@ -88,15 +76,18 @@ var Gauntlet = (function(originalGauntlet){
   originalGauntlet.Combatants.Human.prototype = new originalGauntlet.Combatants.Player();
 
 
-  /*
-    Define the base properties for a monster in a 
-    constructor function.
-   */
+
+  // ---- Define the base properties for a monster in a constructor function. ---- //
+
   originalGauntlet.Combatants.Monster = function() {
     this.health = this.health - 30;
     this.intelligence = this.intelligence -20;
     this.strength = this.strength + 30;
     this.dexterity = this.dexterity - 10;
+    this.allowedClasses = ["Warrior", "Berserker", "Valkyrie", "Monk"];
+    this.allowedSpecies = ["Orc", "Oompaloompa", "Gremlin", "Adorableragamuffin"];
+    this.allowedWeapons = ["BroadSword", "WarAxe", "Mace"];
+
   };
 
   originalGauntlet.Combatants.Monster.prototype = new originalGauntlet.Combatants.Player();
