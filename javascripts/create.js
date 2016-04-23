@@ -16,7 +16,7 @@ var Gauntlet = (function(originalGauntlet){
 
     // ----- calls function (below) to set weapon by creating a new weapon object ----- //
     hero.setWeapon(Gauntlet.chooseWeapon(weaponId));
-
+    
   };
 
   originalGauntlet.chooseCharacterClass = function(classId) {
