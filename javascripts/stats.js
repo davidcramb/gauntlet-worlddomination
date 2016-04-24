@@ -1,39 +1,23 @@
 "use strict";
 var Gauntlet = (function(originalGauntlet){
-	//display starting stats
-		//calculate stats
+	//display starting stats: health, weapon, class
+	//display char''s h,w,c above don't need a loop
 
 	//print to DOM
 		//get hero's name into DOM
-			//capturing hero.name from the object we made
+			
 		originalGauntlet.outputHeroStats =	function(hero) {
-			console.log("hero", hero);
-				var startingStats = document.getElementById("stats");
-				startingStats.innerHTML = "Your weapon choice is " + hero.weapon;
+			var startingStats = document.getElementById("stats");
+
+			var heroStatString = "";
+			heroStatString += `<div><p>Hello ${hero.playerName}</p><p>Your health is  ${hero.health}</p>`;
+
+			heroStatString += `<p>Your weapon points are ${hero.weapon.damage}</p></div>`;
+			startingStats.innerHTML += heroStatString;
+
 		}; 
-		// or
-		// originalGauntlet.outputHeroStats =	function() {
-		// 		var startingStats = document.getElementById("stats");
-		// 		startingStats.innerHTML = "Your weapon choice is " + hero.weapon;
-		// }; 
-	//display attack stats
-		// originalGauntlet.afterAttackHeroStats = 
-	// var outputStuff = function(object) {	
-
-	// 		var output = '';
-	// 		for (var property in object) {
- //  		output += property + ': ' + object[property]+'; ';
-	// 		};
-	// alert(output);
-	// };
-
-	//calculate post-attack stats
-
-	//print to DOM
-
-
-
-
+	
 	 return originalGauntlet;
 
 }) (Gauntlet || {});
+
