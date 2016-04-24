@@ -4,7 +4,7 @@
 var testHero = new Gauntlet.Combatants.Human();
 testHero.setWeapon(new Gauntlet.Armory.WarAxe());
 testHero.setClass(new Gauntlet.GuildHall.Monk());
-testHero.generateClass();  // This will be used for "Surprise me" option
+//testHero.generateClass();  // This will be used for "Surprise me" option
 //console.log(testHero);
 //console.log(testHero.skinColor);
 //console.log(testHero.class.name);
@@ -47,6 +47,9 @@ $(document).ready(function() {
       case "card--weapon":
         moveAlong = ($("#player-name").val() !== "");
         break;
+      case "card--prepare":
+        moveAlong = ($("#player-name").val() !== "");
+        break;
       case "card--battleground":
         moveAlong = ($("player-name").val() !== "");
     }
@@ -68,18 +71,18 @@ $(document).ready(function() {
   $("#build__hero").click(function(e) {
 
     Gauntlet.createHero();
-
-    Gauntlet.outputHeroStats(hero);
-
     Gauntlet.createEnemy();
 
+    Gauntlet.setHealth(hero, enemy);
+
+    Gauntlet.outputHeroStats(hero);
     Gauntlet.outputEnemyStats(enemy);
 
   });
 
-  $("#attackBtn").click(function(e) {
+  $(".attack").click(function(e) {
 
-    console.log("You clicked me");
+    Gauntlet.attack(hero, enemy);
 
   });
 
