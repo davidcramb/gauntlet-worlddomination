@@ -62,6 +62,19 @@ body {
   background-color: green;
 }
 
+.battle__stats {
+  clear: both;
+  padding: 10px;
+  margin: 0 auto;
+  margin-top: 45px;
+  border: 2px solid black;
+  width: 65%;
+  font-size: 0.75em;
+  text-align: center;
+  background-color: #642EFE;
+  color:white;
+}
+
 
 /*
   Button styles
