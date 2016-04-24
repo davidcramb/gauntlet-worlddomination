@@ -50,6 +50,8 @@ body {
   color: white;
   font-size: 0.75em;
   text-align: center;
+  height: 200px;
+  vertical-align: center;
 }
 
 .hero__stats {
@@ -59,8 +61,6 @@ body {
 .enemy__stats {
   background-color: green;
 }
-
-
 
 
 /*
@@ -85,6 +85,13 @@ body {
   border-color: #FF4136;
   color: white;
   background-color: #FF4136;
+}
+
+.btn--red {
+  border-color: red;
+  color: white;
+  background-color: red;
+  width: 200px;
 }
 
 .btn--blue {
@@ -126,4 +133,8 @@ body {
 .btn__text {
   padding: 0 50px 0 20px;
   border-radius: 0 5px 5px 0;
+}
+
+#attackBtn {
+  clear: both;
 }
