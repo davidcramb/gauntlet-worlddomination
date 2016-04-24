@@ -149,14 +149,21 @@ var Gauntlet = (function(originalGauntlet){
 
 
     enemy = new Gauntlet.Combatants.Monster();
-
-    enemy.generateClass();
     enemy.generateSpecies();
+    enemy.generateClass();
     enemy.generateWeapon();
 
   };
 
-   // ------ Generates a random class in two scenarios:           ---------- //
+
+  // ------ Adds a weapon to the player object based on user's choice ----------- //
+
+  originalGauntlet.Combatants.Monster.prototype.setSpecies = function(species) {
+    this.weapon = species;
+  }
+
+
+  // ------ Generates a random class in two scenarios:           ---------- //
   // ------  1. if user chooses 'surprise me' instead of a class ---------- //
   // ------  2. when creating a new random enemy monster         ---------- //
 
