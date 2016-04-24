@@ -46,19 +46,18 @@ var Gauntlet = (function(originalGauntlet){
 
   // ------ Adds a weapon to the player object based on user's choice ----------- //
 
-  originalGauntlet.Combatants.Player.prototype.setWeapon = function(chosenWeapon) {
-    this.weapon = chosenWeapon;
+  originalGauntlet.Combatants.Player.prototype.setWeapon = function(newWeapon) {
+    this.weapon = newWeapon;
   }
 
 
   // ---------- Sets new class based on user's input ----------- //
   originalGauntlet.Combatants.Player.prototype.setClass = function(newClass) {
     this.class = newClass;
-    //this.health += this.class.healthBonus;
   };
 
   /*
-    Define the base properties for a human in a 
+    Define the base properties for a human in a
     constructor function.
    */
   originalGauntlet.Combatants.Human = function(name) {
@@ -72,6 +71,8 @@ var Gauntlet = (function(originalGauntlet){
     this.skinColor = this.skinColors[randomSkin];
 
     this.allowedClasses = ["Warrior", "Berserker", "Valkyrie", "Monk"];
+    this.allowedWeapons = ["BroadSword", "WarAxe", "Mace"];
+
   };
   originalGauntlet.Combatants.Human.prototype = new originalGauntlet.Combatants.Player();
 
@@ -87,7 +88,6 @@ var Gauntlet = (function(originalGauntlet){
     this.allowedClasses = ["Warrior", "Berserker", "Valkyrie", "Monk"];
     this.allowedSpecies = ["Orc", "Oompaloompa", "Gremlin", "Adorableragamuffin"];
     this.allowedWeapons = ["BroadSword", "WarAxe", "Mace"];
-
   };
 
   originalGauntlet.Combatants.Monster.prototype = new originalGauntlet.Combatants.Player();
