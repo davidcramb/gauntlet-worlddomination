@@ -1,35 +1,37 @@
 "use strict";
 var Gauntlet = (function(originalGauntlet){
-	//display starting stats
-		//calculate stats
+
+	//display starting stats: health, weapon, class
+
 
 	//print to DOM
 		//get hero's name into DOM
 			//capturing hero.name from the object we made
-		originalGauntlet.outputHeroStats =	function(hero) {
-			console.log("hero", hero);
-				var startingStats = document.getElementById("stats");
-				startingStats.innerHTML = "Your weapon choice is " + hero.weapon;
-		}; 
-		// or
-		// originalGauntlet.outputHeroStats =	function() {
-		// 		var startingStats = document.getElementById("stats");
-		// 		startingStats.innerHTML = "Your weapon choice is " + hero.weapon;
-		// }; 
-	//display attack stats
-		// originalGauntlet.afterAttackHeroStats = 
-	// var outputStuff = function(object) {	
 
-	// 		var output = '';
-	// 		for (var property in object) {
- //  		output += property + ': ' + object[property]+'; ';
-	// 		};
-	// alert(output);
-	// };
+		originalGauntlet.outputHeroStats = function(hero) {
 
-	//calculate post-attack stats
+				var startingHeroStats = document.getElementById("hero__stats");
+				var heroStatString = "";
+				var capName = hero.playerName.toUpperCase();
 
-	//print to DOM
+				heroStatString += `<div id="hero" class="hero_stats">`
+				heroStatString += `<p>Welcome ${capName} the ${hero.class}.</p>`;
+				heroStatString += `<p>We applaud your choice of ${hero.weapon}.</p></div>`;
+
+				startingHeroStats.innerHTML = heroStatString;
+		};
+
+   originalGauntlet.outputEnemyStats = function(enemy) {
+
+				var startingEnemyStats = document.getElementById("enemy__stats");
+				var enemyStatString = "";
+
+				enemyStatString += `<div id="enemy" class="enemy_stats">`
+				enemyStatString += `<p>You must battle this ${enemy.species.name} ${enemy.class.name}.</p>`;
+				enemyStatString += `<p>Your foe will wield ${enemy.weapon}.</p></div>`;
+
+				startingEnemyStats.innerHTML = enemyStatString;
+		};
 
 
 
