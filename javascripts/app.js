@@ -67,18 +67,20 @@ $(document).ready(function() {
   // ----- When the defend button clicked, create the hero object ----- //
   $("#build__hero").click(function(e) {
 
-    Gauntlet.createHero(classId, weaponId);
+    Gauntlet.createHero();
 
     Gauntlet.outputHeroStats(hero);
-    
+
     Gauntlet.createEnemy();
+
+    Gauntlet.outputEnemyStats(enemy);
 
   });
 
   $("#attackBtn").click(function(e) {
 
-    Gauntlet.attackBtnClicked;
-    console.log("clickWorked!!!!");
-  });  
+    console.log("You clicked me");
+
+  });
 
 });
