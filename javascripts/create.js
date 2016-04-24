@@ -6,20 +6,20 @@ var enemy;
 var Gauntlet = (function(originalGauntlet){
 
 
-  originalGauntlet.createHero = function(classId, weaponId) {
+  originalGauntlet.createHero = function() {
 
     // ----- creates a new hero, feeding in the user-inputted name ----- //
     hero = new Gauntlet.Combatants.Human($('#player-name').val());
 
     // ----- calls function (below) to set class by creating a new class object ----- //
-    hero.setClass(Gauntlet.chooseCharacterClass(classId));
+    hero.setClass(Gauntlet.chooseCharacterClass());
 
     // ----- calls function (below) to set weapon by creating a new weapon object ----- //
-    hero.setWeapon(Gauntlet.chooseWeapon(weaponId));
-    
+    hero.setWeapon(Gauntlet.chooseWeapon());
+
   };
 
-  originalGauntlet.chooseCharacterClass = function(classId) {
+  originalGauntlet.chooseCharacterClass = function() {
     // ---------- Takes the user's choice of class and sets up   ---------- //
     // ---------- structure for creating a new class that will   ---------- //
     // ---------- be used in the function above to set the class ---------- //
@@ -55,7 +55,18 @@ var Gauntlet = (function(originalGauntlet){
         var x = new Gauntlet.GuildHall.Assassin();
         break;
       case "surprise":
-        generateClass();
+        // --- The call to generateClass has to go in this way because we need --- //
+        // --- 'x' to hold the new (randomly created) class.  If we just call  --- //
+        // --- the function (without making it equal x), we won't be able to   --- //
+        // --- capture the value that gets chosen by the function and our hero --- //
+        // --- will end up with 'undefined' for a weapon choice.               --- //
+
+        // --- ALSO, it's necessary to call the function ON hero like this:    --- //
+        // ---  hero.generateClass(); because otherwise the function won't     --- //
+        // --- know where to look for the 'allowedClasses' array. It needs     --- //
+        // --- the length of that array to do the randomizing, but without the --- //
+        // --- hero. part of the call, it can't find the array and fails.      --- //
+        x = hero.generateClass();
         break;
     }
 
@@ -65,56 +76,67 @@ var Gauntlet = (function(originalGauntlet){
 
 // ----- Function to create new weapon object and add it to character ----- //
 
-  originalGauntlet.chooseWeapon = function(weaponId) {
+  originalGauntlet.chooseWeapon = function() {
     // ---------- Takes the user's choice of weapon and sets up   ---------- //
     // ---------- structure for creating a new weapon that will   ---------- //
     // ---------- be used in the function above to set the weapon ---------- //
+    var y;
 
     switch (weaponId) {
       case "Weapon":
-        var y = new Gauntlet.Armory.Weapon();
+        y = new Gauntlet.Armory.Weapon();
+        break;
+      case "Dagger":
+        y = new Gauntlet.Armory.Dagger();
         break;
       case "BroadSword":
-        var y = new Gauntlet.Armory.BroadSword();
+        y = new Gauntlet.Armory.BroadSword();
         break;
       case "WarAxe":
-        var y = new Gauntlet.Armory.WarAxe();
+        y = new Gauntlet.Armory.WarAxe();
+        break;
+      case "Wand":
+        y = new Gauntlet.Armory.Wand();
         break;
       case "Claymore":
-        var y = new Gauntlet.Armory.Claymore();
+        y = new Gauntlet.Armory.Claymore();
         break;
       case "Mace":
-        var y = new Gauntlet.Armory.Mace();
+        y = new Gauntlet.Armory.Mace();
         break;
       case "Shuriken":
-        var y = new Gauntlet.Armory.Shuriken();
+        y = new Gauntlet.Armory.Shuriken();
+        break;
+      case "Scythe":
+        y = new Gauntlet.Armory.Scythe();
         break;
       case "Sai":
-        var y = new Gauntlet.Armory.Sai();
+        y = new Gauntlet.Armory.Sai();
         break;
       case "Katana":
-        var y = new Gauntlet.Armory.Katana();
+        y = new Gauntlet.Armory.Katana();
         break;
       case "Tonfa":
-        var y = new Gauntlet.Armory.Tonfa();
+        y = new Gauntlet.Armory.Tonfa();
         break;
       case "BrassKnuckles":
-        var y = new Gauntlet.Armory.BrassKnuckles();
+        y = new Gauntlet.Armory.BrassKnuckles();
         break;
       case "Potions":
-        var y = new Gauntlet.Armory.Potions();
+        y = new Gauntlet.Armory.Potions();
         break;
       case "Taser":
-        var y = new Gauntlet.Armory.Taser();
+        y = new Gauntlet.Armory.Taser();
         break;
       case "Staff":
-        var y = new Gauntlet.Armory.Staff();
+        y = new Gauntlet.Armory.Staff();
         break;
       case "ShrunkenHead":
-        var y = new Gauntlet.Armory.ShrunkenHead();
+        y = new Gauntlet.Armory.ShrunkenHead();
         break;
-      case "surprise":
-        //generateWeapon();
+      case "SurpriseMe":
+        // --- see explanation in the chooseClass function above --- //
+        y = hero.generateWeapon();
         break;
     }
 
@@ -127,14 +149,21 @@ var Gauntlet = (function(originalGauntlet){
 
 
     enemy = new Gauntlet.Combatants.Monster();
-
-    enemy.generateClass();
     enemy.generateSpecies();
+    enemy.generateClass();
     enemy.generateWeapon();
 
   };
 
-   // ------ Generates a random class in two scenarios:           ---------- //
+
+  // ------ Adds a weapon to the player object based on user's choice ----------- //
+
+  originalGauntlet.Combatants.Monster.prototype.setSpecies = function(species) {
+    this.weapon = species;
+  }
+
+
+  // ------ Generates a random class in two scenarios:           ---------- //
   // ------  1. if user chooses 'surprise me' instead of a class ---------- //
   // ------  2. when creating a new random enemy monster         ---------- //
 
@@ -174,15 +203,15 @@ var Gauntlet = (function(originalGauntlet){
 
   // ------ Chooses a random weapon for the generated enemy ----- //
 
-  originalGauntlet.Combatants.Monster.prototype.generateWeapon = function() {
+  originalGauntlet.Combatants.Player.prototype.generateWeapon = function() {
 
-    // Get a random index from the allowed species array
+    // Get a random index from the allowed weapons array
     var random = Math.round(Math.random() * (this.allowedWeapons.length - 1));
 
     // Get the string at the index
     var randomWeapon = this.allowedWeapons[random];
 
-    // Composes the corresponding enemy species into the enemy object
+    // Composes the corresponding enemy weapon into the enemy object
     this.weapon = new originalGauntlet.Armory[randomWeapon]();
 
     return this.weapon;

@@ -38,6 +38,30 @@ body {
   text-align: center;
 }
 
+/* Stats area styles */
+
+.hero__stats,
+.enemy__stats {
+  padding: 10px;
+  margin: 20px;
+  border: 2px solid black;
+  width: 45%;
+  float: left;
+  color: white;
+  font-size: 0.75em;
+  text-align: center;
+  height: 200px;
+  vertical-align: center;
+}
+
+.hero__stats {
+  background-color: blue;
+}
+
+.enemy__stats {
+  background-color: green;
+}
+
 
 /*
   Button styles
@@ -61,6 +85,13 @@ body {
   border-color: #FF4136;
   color: white;
   background-color: #FF4136;
+}
+
+.btn--red {
+  border-color: red;
+  color: white;
+  background-color: red;
+  width: 200px;
 }
 
 .btn--blue {
@@ -102,4 +133,8 @@ body {
 .btn__text {
   padding: 0 50px 0 20px;
   border-radius: 0 5px 5px 0;
+}
+
+#attackBtn {
+  clear: both;
 }
