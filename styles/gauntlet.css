@@ -38,6 +38,30 @@ body {
   text-align: center;
 }
 
+/* Stats area styles */
+
+.hero__stats,
+.enemy__stats {
+  padding: 10px;
+  margin: 20px;
+  border: 2px solid black;
+  width: 45%;
+  float: left;
+  color: white;
+  font-size: 0.75em;
+  text-align: center;
+}
+
+.hero__stats {
+  background-color: blue;
+}
+
+.enemy__stats {
+  background-color: green;
+}
+
+
+
 
 /*
   Button styles
