@@ -213,7 +213,7 @@ var Gauntlet = (function(originalGauntlet){
 
     // Composes the corresponding enemy weapon into the enemy object
     this.weapon = new originalGauntlet.Armory[randomWeapon]();
-    console.log(this.weapon);
+
     return this.weapon;
   };
 
