@@ -18,6 +18,13 @@
     originalGauntlet.checkHealth(heroHealth, enemyHealth);
   };
 
+  originalGauntlet.checkMagicUser = function (hero) {
+    if (hero.class.magical) {
+      $(".attack").append(`<a class="card__link btn btn--big btn--orange" href="#" next="card--battleground">
+          <span class="btn__prompt">&gt;</span><span class="btn__text">SpellBook</span></a>`);
+    }
+  }
+
   originalGauntlet.checkHealth = function(hero, enemy) {
     if (heroHealth <= 0) {
       Gauntlet.outputWinner("enemy");
