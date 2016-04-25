@@ -57,10 +57,25 @@ var Gauntlet = (function(originalGauntlet){
     winnerStats.innerHTML = `<div class="battle__stats"> <h1>GAME OVER</h1>
                               <p>${winnerString}</p></div>`;
 
-    // Here we need to add a "play again" button instead of the "attack" button
+    Gauntlet.hideAttackBtn();
+    Gauntlet.showRestartBtn();	
+    Gauntlet.showContinePlayBtn();                          
+  }; 
 
+  originalGauntlet.hideAttackBtn = function() {
+    	document.getElementById("attackTwo").style.visibility = "hidden";
+  };	
+  
+	originalGauntlet.showRestartBtn = function() {
+		  document.getElementById("playAgain").classList.remove("hidden");
+			document.getElementById("playAgain").classList.add("visible");
 	};
 
+	originalGauntlet.showContinePlayBtn = function() {
+		  document.getElementById("continuePlay").classList.remove("hidden");
+			document.getElementById("continuePlay").classList.add("visible");
+	};
+	
 	return originalGauntlet;
 
 }) (Gauntlet || {});
