@@ -10,20 +10,10 @@
     enemyHealth = enemy.health;
   };
 
-  originalGauntlet.heroAttackDamage = function (hero) {
-    let heroDamage = Math.floor(Math.random() * hero.weapon.damage +1);
-    return heroDamage;
-  };
-  originalGauntlet.enemyAttackDamage = function (enemy) {
-    let enemyDamage = Math.floor(Math.random() * enemy.weapon.damage + 1)
-    return enemyDamage
-  }
-
   originalGauntlet.attackDamage = function (char) {
-    let damageOutput = Math.floor(Math.random() * char.weapon.damage + 1);
+    let damageOutput = char.weapon.damage + Math.floor(Math.floor(Math.random() * char.strength) / 10)
     return damageOutput
-
-  }
+  };
 
   originalGauntlet.attack = function (hero, enemy) {
     heroHealth -= Gauntlet.attackDamage(enemy)
@@ -37,7 +27,7 @@
       $(".attack").append(`<a class="card__link btn btn--big btn--orange" href="#" next="card--battleground">
                           <span class="btn__prompt">&gt;</span><span class="btn__text">SpellBook</span></a>`);
     }
-  }
+  };
 
   originalGauntlet.checkHealth = function(hero, enemy) {
     if (heroHealth <= 0) {
