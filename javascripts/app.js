@@ -75,6 +75,11 @@ $(document).ready(function() {
 
     Gauntlet.setHealth(hero, enemy);
 
+    //David Test Code
+    Gauntlet.checkMagicUser(hero);
+    //
+
+
     Gauntlet.outputHeroStats(hero);
     Gauntlet.outputEnemyStats(enemy);
 
