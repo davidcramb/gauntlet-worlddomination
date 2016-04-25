@@ -86,4 +86,8 @@ $(document).ready(function() {
 
   });
 
+  $("#playAgain").click(function(e) {
+    console.log("playAgain function");
+  });
+
 });
