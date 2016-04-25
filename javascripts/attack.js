@@ -8,12 +8,26 @@
   originalGauntlet.setHealth = function(hero, enemy){
     heroHealth = hero.health;
     enemyHealth = enemy.health;
-
   };
 
+  originalGauntlet.heroAttackDamage = function (hero) {
+    let heroDamage = Math.floor(Math.random() * hero.weapon.damage +1);
+    return heroDamage;
+  };
+  originalGauntlet.enemyAttackDamage = function (enemy) {
+    let enemyDamage = Math.floor(Math.random() * enemy.weapon.damage + 1)
+    return enemyDamage
+  }
+
+  originalGauntlet.attackDamage = function (char) {
+    let damageOutput = Math.floor(Math.random() * char.weapon.damage + 1);
+    return damageOutput
+
+  }
+
   originalGauntlet.attack = function (hero, enemy) {
-    heroHealth -= enemy.weapon.damage;
-    enemyHealth -= hero.weapon.damage;
+    heroHealth -= Gauntlet.attackDamage(enemy)
+    enemyHealth -= Gauntlet.attackDamage(hero)
 
     originalGauntlet.checkHealth(heroHealth, enemyHealth);
   };
@@ -21,7 +35,7 @@
   originalGauntlet.checkMagicUser = function (hero) {
     if (hero.class.magical) {
       $(".attack").append(`<a class="card__link btn btn--big btn--orange" href="#" next="card--battleground">
-          <span class="btn__prompt">&gt;</span><span class="btn__text">SpellBook</span></a>`);
+                          <span class="btn__prompt">&gt;</span><span class="btn__text">SpellBook</span></a>`);
     }
   }
 
