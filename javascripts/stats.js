@@ -58,14 +58,22 @@ var Gauntlet = (function(originalGauntlet){
                               <p>${winnerString}</p></div>`;
 
     Gauntlet.hideAttackBtn();
-    Gauntlet.showPlayAgainBtn();	                          
-  };                            	
+    Gauntlet.showRestartBtn();	
+    Gauntlet.showContinePlayBtn();                          
+  }; 
+
   originalGauntlet.hideAttackBtn = function() {
     	document.getElementById("attackTwo").style.visibility = "hidden";
   };	
-	originalGauntlet.showPlayAgainBtn = function() {
+  
+	originalGauntlet.showRestartBtn = function() {
 		  document.getElementById("playAgain").classList.remove("hidden");
 			document.getElementById("playAgain").classList.add("visible");
+	};
+
+	originalGauntlet.showContinePlayBtn = function() {
+		  document.getElementById("continuePlay").classList.remove("hidden");
+			document.getElementById("continuePlay").classList.add("visible");
 	};
 	
 	return originalGauntlet;
