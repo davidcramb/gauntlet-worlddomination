@@ -35,13 +35,24 @@ var Gauntlet = (function(originalGauntlet){
 
 		var startingBattleStats = document.getElementById("battle__stats");
 		var battleStatString = "";
+		var randomHeroLimb = Gauntlet.randomLimb(hero);
+		var randomEnemyLimb = originalGauntlet.randomLimb(enemy);
 
 		battleStatString += `<div id="battle__stats" class="battle__stats">
+												 <p>Your foe smacks you in the ${randomHeroLimb}.</p>
 												 <p>Your health is now ${heroHealth}!</p>
+												 <p>You strike the enemy in the ${randomEnemyLimb}</p>
 												 <p>Your foe's health is ${enemyHealth}!</p></div>`
 
 		startingBattleStats.innerHTML = battleStatString;
 	};
+
+  originalGauntlet.randomLimb = function(char) {
+    for (let i = 0; i < char.limbs.length; i++) {
+      var randomizedLimb = char.limbs[Math.floor(Math.random() * char.limbs.length)]
+      return randomizedLimb;
+    }
+  };
 
 	originalGauntlet.outputWinner = function(winner) {
     var winnerStats = document.getElementById("battle__stats");
@@ -74,14 +85,18 @@ var Gauntlet = (function(originalGauntlet){
 
 	originalGauntlet.toggleRestartBtn = function() {
 		  document.getElementById("playAgain").classList.toggle("hidden");
-			//document.getElementById("playAgain").classList.add("visible");
 	};
+
 
 	originalGauntlet.toggleContinuePlayBtn = function() {
 		  document.getElementById("continuePlay").classList.toggle("hidden");
-			//document.getElementById("continuePlay").classList.add("visible");
 	};
 
+
+	originalGauntlet.showContinePlayBtn = function() {
+		  document.getElementById("continuePlay").classList.remove("hidden");
+			document.getElementById("continuePlay").classList.add("visible");
+	};
 
 
 	return originalGauntlet;
