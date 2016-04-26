@@ -99,14 +99,10 @@ $(document).ready(function() {
 
   $("#continuePlay").click(function(e) {
 
-
-    console.log("Continuing");
-
     Gauntlet.createEnemy();
-    console.log(hero);
 
     Gauntlet.setHealth(hero, enemy);
-    console.log(hero.health, enemy.health);
+
     Gauntlet.outputHeroStats(hero);
     Gauntlet.outputEnemyStats(enemy);
 
@@ -118,7 +114,6 @@ $(document).ready(function() {
     Gauntlet.toggleRestartBtn();
     Gauntlet.toggleContinuePlayBtn();
 
-      // reset attack button and hide the continue and restart buttons
   });
 
 });
