@@ -5,10 +5,6 @@ var testHero = new Gauntlet.Combatants.Human();
 testHero.setWeapon(new Gauntlet.Armory.WarAxe());
 testHero.setClass(new Gauntlet.GuildHall.Monk());
 //testHero.generateClass();  // This will be used for "Surprise me" option
-//console.log(testHero);
-//console.log(testHero.skinColor);
-//console.log(testHero.class.name);
-//console.log(testHero.class.healthBonus);
 
 var testEnemy = new Gauntlet.Combatants.Orc();
 testEnemy.generateClass();
@@ -28,7 +24,6 @@ $(document).ready(function() {
 
   $("#player-setup").show();
 
-  
   // --- Adds listeners to each of the class buttons --- //
 
   Gauntlet.addClickEvent();
@@ -91,9 +86,8 @@ $(document).ready(function() {
 
   });
 
-
   $("#playAgain").click(function(e) {
-    console.log("restart function");
+    location.reload(true);
   });
 
 

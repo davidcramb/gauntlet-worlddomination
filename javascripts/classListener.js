@@ -25,8 +25,12 @@ var Gauntlet = (function(originalGauntlet){
 		else {
 				clickedClass.classList.add("selected");
 			}
+		originalGauntlet.refocusPageClass();	
 	};
 
+	originalGauntlet.refocusPageClass = function() {
+      document.getElementById("travel").focus();
+  };
 
  return originalGauntlet;
 
