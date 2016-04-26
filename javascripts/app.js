@@ -5,10 +5,6 @@ var testHero = new Gauntlet.Combatants.Human();
 testHero.setWeapon(new Gauntlet.Armory.WarAxe());
 testHero.setClass(new Gauntlet.GuildHall.Monk());
 //testHero.generateClass();  // This will be used for "Surprise me" option
-//console.log(testHero);
-//console.log(testHero.skinColor);
-//console.log(testHero.class.name);
-//console.log(testHero.class.healthBonus);
 
 var testEnemy = new Gauntlet.Combatants.Orc();
 testEnemy.generateClass();
@@ -90,13 +86,12 @@ $(document).ready(function() {
     Gauntlet.attack(hero, enemy);
 
   });
-
+  //listener for the Restart Button to refresh page
   $("#playAgain").click(function(e) {
     location.reload(true);
   });
-
+  //Listener for the Continue Button
   $("#continuePlay").click(function(e) {
-    console.log("continue");
   });
 
 });
