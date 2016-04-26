@@ -15,7 +15,7 @@ var Gauntlet = (function(originalGauntlet){
 
     this.playerName = name || "unknown adventurer";
     this.health = Math.floor(Math.random() * 40 + 50);
-    this.limbs = ["head", "neck", "arm", "leg", "torso"];
+    this.limbs = ["head", "neck", "arm", "leg", "torso", "eyeball", "face", "mouth", "ear", "nose", "chin", "shoulder", "knee", "toe", "big toe", "little toe", "toenail", "finger", "fingernail", "thumb", "knuckle", "ankle", "shin", "buttocks", "elbow", "neck"];
     this.skinColor = "gray";
     this.skinColors = [this.skinColor];
     this.strength = 90;
