@@ -8,6 +8,7 @@ var Gauntlet = (function(originalGauntlet){
     this.name = "bare hands";
     this.damage = 1;
     this.hands = 2;
+    this.flavor = ["bat", "swing", "belt", "bonk", "buffet", "butt", "chop", "clip", "cuff", "knock", "lick", "paste", "plunk", "rap", "shock", "slog", "smack", "slap", "sock", "spank", "swat", "swipe", "tap", "uppercut", "wallop", "whop", "zap", "zallop", "kapow"]
     this.toString = function() {
       return this.name || this.weapon.name;
     }

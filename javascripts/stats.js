@@ -36,59 +36,82 @@ var Gauntlet = (function(originalGauntlet){
 		var startingBattleStats = document.getElementById("battle__stats");
 		var battleStatString = "";
 		var randomHeroLimb = Gauntlet.randomLimb(hero);
-		var randomEnemyLimb = originalGauntlet.randomLimb(enemy);
+		var randomEnemyLimb = Gauntlet.randomLimb(enemy);
+		var randomHeroFlavor = Gauntlet.randomFlavor(hero);
+		var randomEnemyFlavor = Gauntlet.randomFlavor(enemy);
 
 		battleStatString += `<div id="battle__stats" class="battle__stats">
-												 <p>Your foe smacks you in the ${randomHeroLimb}.</p>
+												 <p>The ${enemy.species.name} ${randomHeroFlavor}s you in the ${randomHeroLimb}.</p>
 												 <p>Your health is now ${heroHealth}!</p>
-												 <p>You strike the enemy in the ${randomEnemyLimb}</p>
+												 <p>You ${randomEnemyFlavor} the ${enemy.species.name} in the ${randomEnemyLimb}</p>
 												 <p>Your foe's health is ${enemyHealth}!</p></div>`
 
 		startingBattleStats.innerHTML = battleStatString;
 	};
+
+  originalGauntlet.randomLimb = function(char) {
+    for (let i = 0; i < char.limbs.length; i++) {
+      var randomizedLimb = char.limbs[Math.floor(Math.random() * char.limbs.length)]
+      return randomizedLimb;
+    }
+  };
 
 	originalGauntlet.outputWinner = function(winner) {
     var winnerStats = document.getElementById("battle__stats");
     var winnerString;
 
     if (winner === "hero") {
-    	winnerString = "You have vanquished your foe!";
+      winnerString = "You have vanquished your foe!";
+      Gauntlet.toggleContinuePlayBtn();
     }
     else {
-    	winnerString = "Sorry you're dead, loser.";
+      winnerString = "Sorry you're dead, loser.";
     }
 
     winnerStats.innerHTML = `<div class="battle__stats"> <h1>GAME OVER</h1>
                               <p>${winnerString}</p></div>`;
 
     Gauntlet.hideAttackBtn();
-    Gauntlet.showRestartBtn();	
-    Gauntlet.showContinePlayBtn();                          
-  }; 
+    Gauntlet.toggleRestartBtn();
+
+  };
 
   originalGauntlet.hideAttackBtn = function() {
     	document.getElementById("attackTwo").style.visibility = "hidden";
-  };	
-  
-	originalGauntlet.showRestartBtn = function() {
-		  document.getElementById("playAgain").classList.remove("hidden");
-			document.getElementById("playAgain").classList.add("visible");
+  };
+
+  originalGauntlet.showAttackBtn = function() {
+      document.getElementById("attackTwo").style.visibility = "visible";
+  };
+
+
+	originalGauntlet.toggleRestartBtn = function() {
+		  document.getElementById("playAgain").classList.toggle("hidden");
 	};
 
+	originalGauntlet.toggleContinuePlayBtn = function() {
+		  document.getElementById("continuePlay").classList.toggle("hidden");
+  };
 
 	originalGauntlet.randomLimb = function(char) {
 		for (let i = 0; i < char.limbs.length; i++) {
 			var randomizedLimb = char.limbs[Math.floor(Math.random() * char.limbs.length)]
 			return randomizedLimb;
 		}
-	}
+	};
 
+	originalGauntlet.randomFlavor = function(char) {
+		for (let i = 0; i < char.weapon.flavor.length; i++) {
+			var randomizedFlavor = char.weapon.flavor[Math.floor(Math.random() * char.weapon.flavor.length)]
+			return randomizedFlavor;
+		}
+	};
 
 	originalGauntlet.showContinePlayBtn = function() {
 		  document.getElementById("continuePlay").classList.remove("hidden");
 			document.getElementById("continuePlay").classList.add("visible");
 	};
-	
+
 
 	return originalGauntlet;
 

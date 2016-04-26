@@ -24,7 +24,6 @@ $(document).ready(function() {
 
   $("#player-setup").show();
 
-  
   // --- Adds listeners to each of the class buttons --- //
 
   Gauntlet.addClickEvent();
@@ -86,12 +85,29 @@ $(document).ready(function() {
     Gauntlet.attack(hero, enemy);
 
   });
-  //listener for the Restart Button to refresh page
+
   $("#playAgain").click(function(e) {
     location.reload(true);
   });
-  //Listener for the Continue Button
+
+
   $("#continuePlay").click(function(e) {
+
+    Gauntlet.createEnemy();
+
+    Gauntlet.setHealth(hero, enemy);
+
+    Gauntlet.outputHeroStats(hero);
+    Gauntlet.outputEnemyStats(enemy);
+
+    var previousCard = $(this).attr("previous");
+      $(".card").hide();
+      $(".card--prepare").css("display","block");
+
+    Gauntlet.showAttackBtn();
+    Gauntlet.toggleRestartBtn();
+    Gauntlet.toggleContinuePlayBtn();
+
   });
 
 });
