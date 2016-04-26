@@ -91,4 +91,12 @@ $(document).ready(function() {
 
   });
 
+  $("#playAgain").click(function(e) {
+    console.log("restart function");
+  });
+
+  $("#continuePlay").click(function(e) {
+    console.log("continue");
+  });
+
 });
