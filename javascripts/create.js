@@ -12,17 +12,14 @@ var Gauntlet = (function(originalGauntlet){
     hero = new Gauntlet.Combatants.Human($('#player-name').val());
 
     // --- takes results of the chooseCharacterClass function (see below),   --- //
-    // --- creates a new class object and adds that class to the hero object --- //
-    hero.setClass(Gauntlet.chooseCharacterClass());
+    // --- creates a new class object and adds t(hat class to the hero object --- //
+        hero.setClass(Gauntlet.chooseCharacterClass());
 
     // --- takes results of the chooseWeapon function (see below), creates   --- //
     // --- a new weapon object and adds the weapon to the hero object above  --- //
-    hero.setWeapon(Gauntlet.chooseWeapon());
+        hero.setWeapon(Gauntlet.chooseWeapon());
 
   };
-
-
-// --- Allows user to choose a class (or to ask for a randomly generated class) --- //
 
   originalGauntlet.chooseCharacterClass = function() {
 
