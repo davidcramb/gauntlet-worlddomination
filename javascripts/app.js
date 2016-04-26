@@ -92,7 +92,7 @@ $(document).ready(function() {
   });
 
   $("#playAgain").click(function(e) {
-    console.log("restart function");
+    location.reload(true);
   });
 
   $("#continuePlay").click(function(e) {
