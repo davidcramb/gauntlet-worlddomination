@@ -49,34 +49,49 @@ var Gauntlet = (function(originalGauntlet){
 		startingBattleStats.innerHTML = battleStatString;
 	};
 
+  originalGauntlet.randomLimb = function(char) {
+    for (let i = 0; i < char.limbs.length; i++) {
+      var randomizedLimb = char.limbs[Math.floor(Math.random() * char.limbs.length)]
+      return randomizedLimb;
+    }
+  };
+
 	originalGauntlet.outputWinner = function(winner) {
     var winnerStats = document.getElementById("battle__stats");
     var winnerString;
 
     if (winner === "hero") {
-    	winnerString = "You have vanquished your foe!";
+      winnerString = "You have vanquished your foe!";
+      Gauntlet.toggleContinuePlayBtn();
     }
     else {
-    	winnerString = "Sorry you're dead, loser.";
+      winnerString = "Sorry you're dead, loser.";
     }
 
     winnerStats.innerHTML = `<div class="battle__stats"> <h1>GAME OVER</h1>
                               <p>${winnerString}</p></div>`;
 
     Gauntlet.hideAttackBtn();
-    Gauntlet.showRestartBtn();	
-    Gauntlet.showContinePlayBtn();                          
-  }; 
+    Gauntlet.toggleRestartBtn();
+
+  };
 
   originalGauntlet.hideAttackBtn = function() {
     	document.getElementById("attackTwo").style.visibility = "hidden";
-  };	
-  
-	originalGauntlet.showRestartBtn = function() {
-		  document.getElementById("playAgain").classList.remove("hidden");
-			document.getElementById("playAgain").classList.add("visible");
+  };
+
+  originalGauntlet.showAttackBtn = function() {
+      document.getElementById("attackTwo").style.visibility = "visible";
+  };
+
+
+	originalGauntlet.toggleRestartBtn = function() {
+		  document.getElementById("playAgain").classList.toggle("hidden");
 	};
 
+	originalGauntlet.toggleContinuePlayBtn = function() {
+		  document.getElementById("continuePlay").classList.toggle("hidden");
+  };
 
 	originalGauntlet.randomLimb = function(char) {
 		for (let i = 0; i < char.limbs.length; i++) {
@@ -92,12 +107,11 @@ var Gauntlet = (function(originalGauntlet){
 		}
 	};
 
-
 	originalGauntlet.showContinePlayBtn = function() {
 		  document.getElementById("continuePlay").classList.remove("hidden");
 			document.getElementById("continuePlay").classList.add("visible");
 	};
-	
+
 
 	return originalGauntlet;
 

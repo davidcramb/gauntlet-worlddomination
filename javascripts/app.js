@@ -91,12 +91,29 @@ $(document).ready(function() {
 
   });
 
+
   $("#playAgain").click(function(e) {
     console.log("restart function");
   });
 
+
   $("#continuePlay").click(function(e) {
-    console.log("continue");
+
+    Gauntlet.createEnemy();
+
+    Gauntlet.setHealth(hero, enemy);
+
+    Gauntlet.outputHeroStats(hero);
+    Gauntlet.outputEnemyStats(enemy);
+
+    var previousCard = $(this).attr("previous");
+      $(".card").hide();
+      $(".card--prepare").css("display","block");
+
+    Gauntlet.showAttackBtn();
+    Gauntlet.toggleRestartBtn();
+    Gauntlet.toggleContinuePlayBtn();
+
   });
 
 });
