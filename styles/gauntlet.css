@@ -129,6 +129,10 @@ body {
   min-width: 50px;
 }
 
+.btn--small {
+  min-width: 260px;
+}
+
 .btn__prompt {
   background-color: white;
   color: #fff;
@@ -151,3 +155,4 @@ body {
 #attackBtn {
   clear: both;
 }
+
