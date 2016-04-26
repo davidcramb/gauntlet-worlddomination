@@ -17,7 +17,6 @@ var Gauntlet = (function(originalGauntlet) {
 		};
 	};
 
-
 	originalGauntlet.weaponClicked = function(){
 		var clickedWeapon = event.target.closest("div");
 		    weaponId = clickedWeapon.getAttribute("id");
@@ -29,8 +28,12 @@ var Gauntlet = (function(originalGauntlet) {
 		else {
 				clickedWeapon.classList.add("chosen");
 			}
+		originalGauntlet.refocusPageWeapon();	
 	};
 
+	originalGauntlet.refocusPageWeapon = function() {
+		document.getElementById("buildHero").focus();
+	};
 
  return originalGauntlet;
 
