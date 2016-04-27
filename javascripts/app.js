@@ -72,7 +72,7 @@ $(document).ready(function() {
     // --- Calculates respective health of hero and enemy (see ATTACK.JS)
     Gauntlet.setHealth(hero, enemy);
 
-    // --- Calls function to allow use of spellbook
+    // --- Calls function to allow use of spell book (not yet complete)
     //Gauntlet.checkMagicUser(hero);
 
     // Displays initial hero and enemy statistics in the DOM (see STATS.JS) --- //
