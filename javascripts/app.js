@@ -62,50 +62,65 @@ $(document).ready(function() {
     $("." + previousCard).show();
   });
 
-  // ----- When the defend button clicked, create the hero object ----- //
-  $("#build__hero").click(function(e) {
+// ----- Real game play functions start here as hero and enemy are created -------- //
 
+  $("#build__hero").click(function(e) {
+    // --- Calls functions to create hero and enemy (see CREATE.JS)
     Gauntlet.createHero();
     Gauntlet.createEnemy();
 
-    Gauntlet.setHealth(hero, enemy);
+    // --- Calculates respective health of hero and enemy (see ATTACK.JS)
+    Gauntlet.setHeroHealth(hero);
+    Gauntlet.setEnemyHealth(enemy);
 
-    //David Test Code
-    Gauntlet.checkMagicUser(hero);
-    //
+    // --- Calls function to allow use of spell book (not yet complete)
+    //Gauntlet.checkMagicUser(hero);
 
-
+    // Displays initial hero and enemy statistics in the DOM (see STATS.JS) --- //
     Gauntlet.outputHeroStats(hero);
     Gauntlet.outputEnemyStats(enemy);
 
   });
 
-  $(".attack").click(function(e) {
 
+  $(".attack").click(function(e) {
+    // --- attack function, which can run over-and-over (see ATTACK.JS) --- //
     Gauntlet.attack(hero, enemy);
 
   });
 
+
   $("#playAgain").click(function(e) {
+    // --- refreshes the page to start a new game from beginning --- //
     location.reload(true);
   });
 
 
   $("#continuePlay").click(function(e) {
-
+    // --- A new enemy is generated (see CREATE.JS)--- //
     Gauntlet.createEnemy();
 
-    Gauntlet.setHealth(hero, enemy);
+    // --- The health of the old hero and new enemy are set --- //
+    // --- (see ATTACK.JS)
+    Gauntlet.setEnemyHealth(enemy);
+    Gauntlet.healHero();
 
+    // --- Initial battle stats are displayed in the DOM (see STATS.JS)--- //
     Gauntlet.outputHeroStats(hero);
     Gauntlet.outputEnemyStats(enemy);
 
+    // --- Moves page view back to the prep (stats display) area --- //
+    // --- This call MUST come after the ones above or page will --- //
+    // --- load too soon and display as blank (no stats showing) --- //
     var previousCard = $(this).attr("previous");
       $(".card").hide();
       $(".card--prepare").css("display","block");
 
+    // --- Displays the attack button again (to allow play) --- //
     Gauntlet.showAttackBtn();
+    // --- Hides the 'restart w new hero' button --- //
     Gauntlet.toggleRestartBtn();
+    // --- Hides the 'continue w this hero' button --- //
     Gauntlet.toggleContinuePlayBtn();
 
   });
