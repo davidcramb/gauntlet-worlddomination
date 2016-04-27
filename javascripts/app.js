@@ -70,7 +70,8 @@ $(document).ready(function() {
     Gauntlet.createEnemy();
 
     // --- Calculates respective health of hero and enemy (see ATTACK.JS)
-    Gauntlet.setHealth(hero, enemy);
+    Gauntlet.setHeroHealth(hero);
+    Gauntlet.setEnemyHealth(enemy);
 
     // --- Calls function to allow use of spell book (not yet complete)
     //Gauntlet.checkMagicUser(hero);
@@ -101,7 +102,8 @@ $(document).ready(function() {
 
     // --- The health of the old hero and new enemy are set --- //
     // --- (see ATTACK.JS)
-    Gauntlet.setHealth(hero, enemy);
+    Gauntlet.setEnemyHealth(enemy);
+    Gauntlet.healHero();
 
     // --- Initial battle stats are displayed in the DOM (see STATS.JS)--- //
     Gauntlet.outputHeroStats(hero);
