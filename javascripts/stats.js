@@ -12,7 +12,7 @@ var Gauntlet = (function(originalGauntlet){
 
 		heroStatString += `<div id="hero__stats" class="hero__stats">
 										   <p>Welcome ${capName} the ${hero.class}.</p>
- 	 									   <p>Your current health is ${hero.health}.</p>
+ 	 									   <p>Your current health is ${heroHealth}.</p>
 										   <p>We applaud your choice of ${hero.weapon},</p>
 								       <p>providing ${hero.weapon.damage} points of damage.</p></div>`
 
