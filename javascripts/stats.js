@@ -2,11 +2,12 @@
 
 var Gauntlet = (function(originalGauntlet){
 
-// ---------- Prints beginning hero data to the DOM ---------- //
+// ---------- Prints welcome message and beginning hero stats to the DOM ---------- //
 	originalGauntlet.outputHeroStats = function(hero) {
 
 		var startingHeroStats = document.getElementById("hero__stats");
 		var heroStatString = "";
+    // --- converts entire hero name to capital letters --- //
 		var capName = hero.playerName.toUpperCase();
 
 		heroStatString += `<div id="hero__stats" class="hero__stats">
@@ -43,7 +44,7 @@ var Gauntlet = (function(originalGauntlet){
 		var randomHeroLimb = Gauntlet.randomLimb(hero);
 		var randomEnemyLimb = Gauntlet.randomLimb(enemy);
 
-    // --- Generates random type of weapon strike --- //
+    // --- Generates random verb to describe weapon strike --- //
 		var randomHeroFlavor = Gauntlet.randomFlavor(hero);
 		var randomEnemyFlavor = Gauntlet.randomFlavor(enemy);
 
@@ -64,7 +65,7 @@ var Gauntlet = (function(originalGauntlet){
     }
   };
 
-  // ----- Randomly chooses interesting words for weapon damage ----- //
+  // ----- Randomly chooses interesting verbs to describe weapon damage ----- //
   originalGauntlet.randomFlavor = function(char) {
     for (let i = 0; i < char.weapon.flavor.length; i++) {
       var randomizedFlavor = char.weapon.flavor[Math.floor(Math.random() * char.weapon.flavor.length)]
